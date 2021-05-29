@@ -1,0 +1,40 @@
+{
+  "name": "advanced-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "bin": {
+    "advanced-cli": "./bin/index.js"
+  },
+  "scripts": {
+    "start": "npm run build && npm run global",
+    "build": "npm run clean:some && tsc -p .",
+    "global": "npm i -g && advanced-cli",
+    "clean:some": "rm -rf ./lib ./docs",
+    "clean:all": "rm -rf ./node_modules ./package-lock.json ./lib ./docs",
+    "refresh": "npm run clean:all && npm install",
+    "tscov": "tscov --min-coverage 90",
+    "tscov:d": "tscov --details",
+    "publish-package": "npm run build && npm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/fs-extra": "^9.0.11",
+    "figlet": "^1.5.0",
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.1.0",
+    "kleur": "^4.1.4",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.2.0"
+  },
+  "devDependencies": {
+    "@liftr/tscov": "^2.0.0",
+    "@types/figlet": "^1.5.1",
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^15.6.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
